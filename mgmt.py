@@ -107,7 +107,7 @@ def signup():
             link = stripe.AccountLink.create(
                 account=account.id,
                 refresh_url="https://example.com/reauth",
-                return_url="https://dreamvester.herokuapp.com/login",
+                return_url="https://hopevest.herokuapp.com/login",
                 type="account_onboarding",
             )
             print(link.url)
@@ -131,7 +131,7 @@ def verify(token):
 def send_email(email):
     """ Generate a verification link and send an email to verify a user's account. """
     token = s.dumps(email, salt='email-confirm')
-    URL = f"https://dreamvester.herokuapp.com/verify/{token}?email={email}"
+    URL = f"https://hopevest.herokuapp.com/verify/{token}?email={email}"
 
     # me == my email address
     # you == recipient's email address

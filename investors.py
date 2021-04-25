@@ -78,8 +78,8 @@ def confirmPayment():
                     'quantity': 1,
                 }],
                 mode='payment',
-                success_url='https://dreamvester.herokuapp.com/checkoutsuccess',
-                cancel_url='https://dreamvester.herokuapp.com/investors',
+                success_url='https://hopevest.herokuapp.com/checkoutsuccess',
+                cancel_url='https://hopevest.herokuapp.com/investors',
 
             )
             id = sessions.id
