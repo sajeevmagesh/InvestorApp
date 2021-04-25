@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/styles/investors.css">
+        <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-core.min.js"></script>
+        <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-bundle.min.js"></script>
+        <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-base.min.js"></script>
+        <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-radar.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="/">Home</a>
+            <a href="/students">Students</a>
+            <a href="/investors" class="active">Investors</a>
+        </div>
+        <br/>
+        <h2 class="welcome">Welcome <span>{{name}}</span>!</h2>
+        <br/>
+        <div class="bigboi">
+            <div id="container0"></div>
+            <div id="container1"></div>
+        </div>
+        <div>
+            
+            <form method="post">
+                <center>
+                <button type="submit" class="btn btn-success btn-lg" style="margin: auto;">Invest</button>
+                </center>
+            </form>
+          </div>
+          <script>
+
+        for (i=0; i<2; i++){
+            createChart(i)
+            var node = document.querySelector('[title="AnyChart - JavaScript Charts designed to be embedded and integrated, v8.9.0.1932"]');
+            node.remove();
+        }
+        function createChart(num){
+            var data = [
+            ["1", Math.floor(Math.random() * (10000 - 100) + 100)],
+            ["2", Math.floor(Math.random() * (10000 - 100) + 100)],
+            ["3", Math.floor(Math.random() * (10000 - 100) + 100)],
+            ["4", Math.floor(Math.random() * (10000 - 100) + 100)],
+            ["5", Math.floor(Math.random() * (10000 - 100) + 100)]
+            ];
+
+                
+            // create a chart
+            chart = anychart.line();
+            chart.animation(true, duration=2000);
+            //crosshairs:
+            var crosshair = chart.crosshair();
+            // enable crosshair
+            crosshair.enabled(true);
+            // set custom function for formatting x crossshair label
+            var xCrossLabel = crosshair.xLabel();
+            var yCrossLabel = crosshair.yLabel();
+            yCrossLabel.enabled(false);
+            crosshair.yStroke(null);
+
+            //title:
+            var title = chart.title();
+            title.enabled(true);
+            // title text
+            if (num==0){
+                title.text("Amount Loaned");
+            }
+            else{
+                title.text("Amount Paid Back");
+            }
+            
+            title.fontWeight("bold");
+            title.fontColor("#000000");
+            chart.xAxis().title("year")
+            // create a line series and set the data
+            var series = chart.line(data);
+
+
+            // var buttonplus=document.createElement("button");
+            // buttonplus.classList.add("btnp");
+            // document.body.appendChild(buttonplus);
+            // var iconplus=document.createElement("i");
+            // iconplus.classList.add("fas");
+            // iconplus.classList.add("fa-plus-circle");
+            // iconplus.style.fontSize="36px";
+            // buttonplus.appendChild(iconplus);
+            // var buttonminus=document.createElement("button");
+            // buttonminus.classList.add("btnm");
+            // document.body.appendChild(buttonminus);
+            // var iconminus=document.createElement("i");
+            // iconminus.classList.add("fas");
+            // iconminus.classList.add("fa-minus-circle");
+            // iconminus.style.fontSize="36px";
+            // buttonminus.appendChild(iconminus);
+            // set the container id
+            console.log(num.toString(), "lol")
+            chart.container("container"+num);
+            chart.draw();
+
+        }
+
+            </script>
+    </body>
+</html>

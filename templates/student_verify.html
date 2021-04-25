@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+    <title>Student Verification</title>
+  </head>
+  <body>
+      <h1>Student Verification</h1>
+      <hr>
+      <h3>Before obtaining a loan, we need to verify that you are a student.</h3>
+      <hr> <br>
+      <form action="/verify_profile" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="full_name" class="form-label">Full Name:</label>
+          <input type="text" class="form-control" id="full_name" name="full_name" placeholder="John Doe">
+        </div>
+
+        <div class="mb-3">
+            <label for="institution" class="form-label">Educational Institution:</label>
+            <input type="text" class="form-control" id="institution" name="institution" placeholder="">
+        </div>
+
+        <div class="mb-3">
+            <label for="proof" class="form-label">Upload proof of education:</label>
+            <input type="file" class="form-control" id="proof" name="proof" accept="image/png, image/jpeg">
+        </div>
+
+        <div class="mb-3">
+            <label for="backgroundcheck" class="form-label">Background check certificate:</label>
+            <p><strong>Please obtain your certificate from <a href="https://www.sentrylink.com/web/criminal-check.action">Sentry Link</a>.</strong></p>
+            <p><strong>The certificate costs $19.95 and is NON-refundable.</strong></p>
+            <input type="file" class="form-control" id="backgroundcheck" name="backgroundcheck" accept="image/png, image/jpeg">
+        </div>
+   
+        <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+  </body>
+</html>
