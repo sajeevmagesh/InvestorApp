@@ -29,7 +29,6 @@ s = URLSafeTimedSerializer('basingse')
 # Email sending packages
 
 # Environment variables
-load_dotenv()
 stripe.api_key = "sk_test_51IQzm5Cf6QQhScZzDFSfRq03X3a2m2lhQY1EiE50HoshfesexD3e2wjIZRdRzuFWxw9sSp1ENMv2OKNf2NkTLaGm00rcl82C6S"
 # Getting environment variables
 email_name = os.getenv("NAME")
