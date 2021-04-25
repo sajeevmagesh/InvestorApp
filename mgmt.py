@@ -46,7 +46,7 @@ print("Email password:", email_password)
 mgmt = Blueprint('mgmt', __name__)
 @mgmt.route('/', methods=['GET'])
 def redir():
-    return redirect(url_for("mgmt.login"))
+    return render_template("index2.html")
 @mgmt.route('/login', methods=['GET', 'POST'])
 def login():
     """ Login to the application with previously created credentials stored in the database. """
